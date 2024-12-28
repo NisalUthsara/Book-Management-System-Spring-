@@ -1,6 +1,10 @@
 com\example\Book\Management\System\BookManagementSystemApplication.class
 com\example\Book\Management\System\service\BookService.class
+com\example\Book\Management\System\controller\v2\BookController.class
+com\example\Book\Management\System\dto\BookRequestDTO.class
 com\example\Book\Management\System\entity\Book.class
 com\example\Book\Management\System\repository\BookRepository.class
 com\example\Book\Management\System\entity\Book$BookBuilder.class
+com\example\Book\Management\System\dto\BookResponseDTO.class
+com\example\Book\Management\System\controller\v1\BookController.class
 com\example\Book\Management\System\service\BookServiceImpl.class
