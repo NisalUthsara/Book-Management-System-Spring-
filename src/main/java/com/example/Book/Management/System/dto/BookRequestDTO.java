@@ -1,6 +1,9 @@
 package com.example.Book.Management.System.dto;
 
 import lombok.Data;
+
+import java.time.LocalDateTime;
+
 @Data
 public class BookRequestDTO {
     //for creating/updating books
@@ -8,4 +11,5 @@ public class BookRequestDTO {
     private String author;
     private String genre;
     private Double price;
+    private LocalDateTime publishedDate;
 }

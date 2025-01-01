@@ -23,14 +23,14 @@ public class BookController {
     private ModelMapper modelMapper;
 
     //Create a new book
-    @PostMapping
+    @PostMapping("/createBook")
     public ResponseEntity<BookResponseDTO> createBook(@RequestBody BookRequestDTO bookRequestDTO){
         Book createdBook = bookService.saveBook(modelMapper.map(bookRequestDTO, Book.class));
         return ResponseEntity.ok(modelMapper.map(createdBook, BookResponseDTO.class));
     }
 
     //get all books
-    @GetMapping
+    @GetMapping("/getAllBooks")
     public ResponseEntity<List<BookResponseDTO>> getAllBooks(){
         List<Book> books = bookService.getAllBooks();
         List<BookResponseDTO> responseDTOs = books.stream()
@@ -40,21 +40,21 @@ public class BookController {
     }
 
     //Get a book by ID
-    @GetMapping("/{id}")
+    @GetMapping("/getBook/{id}")
     public ResponseEntity<BookResponseDTO> getBooksById(@PathVariable Long id){
         Book book = bookService.getBookById(id);
         return ResponseEntity.ok(modelMapper.map(book, BookResponseDTO.class));
     }
 
     //Update a book
-    @PutMapping("/{id}")
+    @PutMapping("/updateBook/{id}")
     public ResponseEntity<BookResponseDTO> updateBook(@PathVariable Long id, @RequestBody BookRequestDTO bookRequestDTO){
         Book updatedBook = bookService.updateBook(id, modelMapper.map(bookRequestDTO, Book.class));
         return ResponseEntity.ok(modelMapper.map(updatedBook, BookResponseDTO.class));
     }
 
     //Delete a book
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/deleteBook/{id}")
     public ResponseEntity<String> deleteBook(@PathVariable Long id){
         bookService.deleteBook(id);
         return ResponseEntity.ok("Book deleted successfully!");
