@@ -1,9 +1,13 @@
 package com.example.Book.Management.System.service;
 
+import com.example.Book.Management.System.dto.BookResponseDTO;
 import com.example.Book.Management.System.entity.Book;
 import com.example.Book.Management.System.repository.BookRepository;
 import jakarta.transaction.Transactional;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,9 +16,11 @@ import java.util.List;
 @Transactional
 public class BookServiceImpl implements BookService{
     private final BookRepository bookRepository;
+    private final ModelMapper modelMapper;
     @Autowired
-    public BookServiceImpl(BookRepository bookRepository){
+    public BookServiceImpl(BookRepository bookRepository, ModelMapper modelMapper){
         this.bookRepository = bookRepository;
+        this.modelMapper = modelMapper;
     }
     @Override
     public Book saveBook(Book book) {
@@ -45,4 +51,16 @@ public class BookServiceImpl implements BookService{
     public void deleteBook(Long id) {
         bookRepository.deleteById(id);
     }
-}
+
+    @Override
+    public List<BookResponseDTO> searchBooksByAuthor(String author){
+        return bookRepository.findByAuthorContainingIgnoreCase(author)
+                .stream()
+                .map(book -> modelMapper.map(book, BookResponseDTO.class))
+                .toList();
+    }
+    @Override
+    public Page<BookResponseDTO> getBooksByGenreWithPagination(String genre, Pageable pageable){
+        return bookRepository.findByGenreContainingIgnoreCase(genre, pageable)
+                .map(book -> modelMapper.map(book, BookResponseDTO.class));    }
+    }

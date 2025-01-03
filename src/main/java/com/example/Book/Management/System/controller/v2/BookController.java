@@ -6,6 +6,8 @@ import com.example.Book.Management.System.entity.Book;
 import com.example.Book.Management.System.service.BookService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -58,5 +60,15 @@ public class BookController {
     public ResponseEntity<String> deleteBook(@PathVariable Long id){
         bookService.deleteBook(id);
         return ResponseEntity.ok("Book deleted successfully!");
+    }
+
+    @GetMapping("/search")
+    public List<BookResponseDTO> searchBooks(@RequestParam String author){
+        return bookService.searchBooksByAuthor(author);
+    }
+
+    @GetMapping("/getBooksByGenre")
+    public Page<BookResponseDTO> getBooksByGenre(@RequestParam String genre, Pageable pageable){
+        return bookService.getBooksByGenreWithPagination(genre, pageable);
     }
 }
