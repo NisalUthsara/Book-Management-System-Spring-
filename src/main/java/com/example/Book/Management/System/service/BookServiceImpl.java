@@ -1,5 +1,6 @@
 package com.example.Book.Management.System.service;
 
+import com.example.Book.Management.System.Exception.BookNotFoundException;
 import com.example.Book.Management.System.dto.BookResponseDTO;
 import com.example.Book.Management.System.entity.Book;
 import com.example.Book.Management.System.repository.BookRepository;
@@ -35,7 +36,7 @@ public class BookServiceImpl implements BookService{
     @Override
     public Book getBookById(Long id) {
         return bookRepository.findById(id)
-                .orElseThrow( () -> new RuntimeException("Book not found with id: " + id));
+                .orElseThrow( () -> new BookNotFoundException("Book with ID "+ id + " not found")); //updated for exception class testing
     }
 
     @Override
