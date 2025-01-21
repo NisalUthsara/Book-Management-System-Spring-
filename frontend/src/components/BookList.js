@@ -5,16 +5,14 @@ const BookList = () => {
     const [books,setBooks] = useState([]);
 
     useEffect(() => {
-        const fetchBooks = async () => {
-            try {
-                const response = await api.get('/getAllBooks');
+        api
+            .get('/getAllBooks')
+            .then((response) => {
                 setBooks(response.data);
-            }catch (error) {
-                console.error('Error fetching books: ', error);
-            }
-        };
-
-        fetchBooks();
+            })
+            .catch((error) => {
+                console.error("There was an error fetching the books!", error);
+            });
     }, []);
 
     return(
