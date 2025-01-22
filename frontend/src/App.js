@@ -1,10 +1,11 @@
 import BookList from "./components/BookList";
+import Dashboard from "./components/Dashboard";
 
 function App() {
   return (
     <div>
-      <h1>Book Management System</h1>
-        <BookList/>
+        {/*<BookList/>*/}
+        <Dashboard/>
     </div>
   );
 }

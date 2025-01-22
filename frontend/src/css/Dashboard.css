@@ -1,0 +1,107 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.main-div{
+    display: flex;
+    flex-direction: row;
+    background-color: aquamarine;
+    height: 100vh;
+    font-size: medium;
+}
+
+.main-sidebar{
+    margin: 20px;
+    border-radius: 20px;
+    background-color: #141515;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    padding: 20px;
+    justify-content: space-between;
+}
+
+.main-sidebar-title{
+    font-size: large;
+    display: flex;
+}
+
+.main-layout-header-menuIcon{
+    display: none;
+}
+
+.main-sidebar-btn-div{
+    display: flex;
+    flex-direction: column;
+    height: 75%;
+    gap:10px;
+}
+
+.main-layout{
+    margin-block: 20px;
+    margin-right: 20px;
+    padding: 20px;
+    border-radius: 20px;
+    background-color: #141515;
+    color: white;
+    width: 80%;
+}
+
+.main-layout-header{
+    width: 100%;
+    background-color: cadetblue;
+    display: flex;
+    justify-content: end;
+    padding: 10px;
+}
+
+.main-layout-header-icons{
+
+}
+
+/* Mobile devices (up to 767px) */
+@media only screen and (max-width: 767px) {
+    /* Add your mobile-specific styles here */
+    .main-sidebar {
+        display: none;
+    }
+
+    .main-layout{
+        width: 100%;
+        margin: 20px;
+    }
+
+    .main-sidebar-title{
+        font-size: small;
+    }
+
+    .main-layout-header{
+        justify-content: space-between;
+    }
+
+    .main-layout-header-menuIcon{
+        display: block;
+    }
+
+}
+
+/* Tablets (768px to 1024px) */
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+    /* Add your tablet-specific styles here */
+    .myClass {
+        font-size: 16px;
+        padding: 15px;
+    }
+}
+
+/* Desktops (1025px and up) */
+@media only screen and (min-width: 1025px) {
+    /* Add your desktop-specific styles here */
+    .myClass {
+        font-size: 18px;
+        padding: 20px;
+    }
+}
