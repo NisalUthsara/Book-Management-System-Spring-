@@ -1,11 +1,12 @@
 import '../css/Dashboard.css'
 import MenuIcon from '@mui/icons-material/Menu';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import BookList from "./BookList";
 function Dashboard() {
     const viewMenuIcon = () => {
         const sideBar = document.getElementsByClassName("main-sidebar")[0];
         if (sideBar){
-            sideBar.style.display = 'block';
+            sideBar.classList.toggle('show');
         }
     };
 
@@ -14,7 +15,6 @@ function Dashboard() {
             <div className="main-sidebar">
                 <div className="main-sidebar-title">
                     <h2>Book Management System</h2>
-
                 </div>
                 <div className="main-sidebar-btn-div">
                     <button>Home</button>
@@ -34,7 +34,11 @@ function Dashboard() {
                         <AccountCircleIcon/>
                     </div>
                 </div>
-                <div className="main-layout-body"></div>
+                <hr/>
+                <div className="main-layout-body">
+                    <h1>Book Lists :</h1>
+                    <BookList/>
+                </div>
             </div>
             <div></div>
         </div>
