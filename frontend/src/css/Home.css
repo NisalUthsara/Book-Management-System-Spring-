@@ -1,0 +1,87 @@
+.Home-main-div{
+    /*background-color: red;*/
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.Home-content-s1{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.Home-content-s2{
+    background-color: rebeccapurple;
+}
+
+.Home-content-s1-box1{
+    width: 300px;
+    background-color: #424343;
+    display: flex;
+    padding: 10px;
+    margin: 10px 10px 10px 0;
+    border-radius: 15px;
+    gap: 10px;
+    box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+}
+
+.Home-content-s1-box1-text-div{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.Home-content-s1-box1-icon-div{
+    display: flex;
+}
+
+.Home-content-s1-box2{
+    width: 300px;
+    background-color: #424343;
+    justify-content: space-between;
+    display: flex;
+    padding: 10px;
+    margin: 10px 10px 10px 0;
+    border-radius: 15px;
+    gap: 10px;
+    box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+}
+
+.Home-content-s1-box2-text-div{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.Home-content-s1-box2-icon-div{
+    display: flex;
+}
+
+.Home-content-s1-box3{
+    width: 300px;
+    background-color: #424343;
+    justify-content: space-between;
+    display: flex;
+    padding: 10px;
+    margin: 10px 10px 10px 0;
+    border-radius: 15px;
+    gap: 10px;
+    box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+}
+
+.Home-content-s1-box3-text-div{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.Home-content-s1-box3-icon-div{
+    display: flex;
+}
+
+/*sizes of the icons*/
+
+.BookIcon, .SellIcon, .CalanderIcon{
+    font-size: 100px;
+}

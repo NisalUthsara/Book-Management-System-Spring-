@@ -1,7 +1,7 @@
 import '../css/Dashboard.css'
 import MenuIcon from '@mui/icons-material/Menu';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import BookList from "./BookList";
+import {Link, Outlet} from "react-router-dom";
 function Dashboard() {
     const viewMenuIcon = () => {
         const sideBar = document.getElementsByClassName("main-sidebar")[0];
@@ -17,8 +17,8 @@ function Dashboard() {
                     <h2>Book Management System</h2>
                 </div>
                 <div className="main-sidebar-btn-div">
-                    <button>Home</button>
-                    <button>Manage</button>
+                    <button><Link to="/">Home</Link></button>
+                    <button><Link to="/manage">Manage</Link></button>
                     <button>Profile</button>
                 </div>
                 <div>
@@ -36,8 +36,7 @@ function Dashboard() {
                 </div>
                 <hr/>
                 <div className="main-layout-body">
-                    <h1>Book Lists :</h1>
-                    <BookList/>
+                    <Outlet/>
                 </div>
             </div>
             <div></div>
