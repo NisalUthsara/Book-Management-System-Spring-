@@ -7,12 +7,13 @@
 
 .Home-content-s1{
     display: flex;
+    height: 150px;
     flex-direction: row;
     justify-content: space-between;
 }
 
 .Home-content-s2{
-    background-color: rebeccapurple;
+    /*background-color: rebeccapurple;*/
 }
 
 .Home-content-s1-box1{
@@ -23,7 +24,7 @@
     margin: 10px 10px 10px 0;
     border-radius: 15px;
     gap: 10px;
-    box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+    box-shadow:  19px 19px 39px #0d0d0d, -19px -19px 39px #212121;
 }
 
 .Home-content-s1-box1-text-div{
@@ -34,6 +35,8 @@
 
 .Home-content-s1-box1-icon-div{
     display: flex;
+    width: 80%;
+    background-color: rebeccapurple;
 }
 
 .Home-content-s1-box2{
@@ -45,7 +48,7 @@
     margin: 10px 10px 10px 0;
     border-radius: 15px;
     gap: 10px;
-    box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+    box-shadow:  19px 19px 39px #0d0d0d, -19px -19px 39px #212121;
 }
 
 .Home-content-s1-box2-text-div{
@@ -67,7 +70,7 @@
     margin: 10px 10px 10px 0;
     border-radius: 15px;
     gap: 10px;
-    box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+    box-shadow:  19px 19px 39px #0d0d0d, -19px -19px 39px #212121;
 }
 
 .Home-content-s1-box3-text-div{
@@ -82,6 +85,6 @@
 
 /*sizes of the icons*/
 
-.BookIcon, .SellIcon, .CalanderIcon{
+.BookIcon, .SellIcon, CalanderIcon{
     font-size: 100px;
 }
