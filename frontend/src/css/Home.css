@@ -35,6 +35,8 @@
 
 .Home-content-s1-box1-icon-div{
     display: flex;
+    justify-content: center;
+    align-items: center;
     width: 80%;
     background-color: rebeccapurple;
 }
@@ -59,6 +61,9 @@
 
 .Home-content-s1-box2-icon-div{
     display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
 }
 
 .Home-content-s1-box3{
@@ -81,10 +86,14 @@
 
 .Home-content-s1-box3-icon-div{
     display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
 }
 
 /*sizes of the icons*/
 
-.BookIcon, .SellIcon, CalanderIcon{
-    font-size: 100px;
+.BookIcon, .SellIcon, .CalendarIcon {
+    font-size: xxx-large;
 }
+

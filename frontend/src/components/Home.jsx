@@ -32,7 +32,7 @@ function Home() {
                         <h1>4</h1>
                     </div>
                     <div className="Home-content-s1-box3-icon-div">
-                        <EventRoundedIcon className="CalanderIcon"/>
+                        <EventRoundedIcon className="CalendarIcon"/>
                     </div>
                 </div>
             </div>
