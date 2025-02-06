@@ -1,0 +1,87 @@
+.Manage-content{
+    /*background-color: cadetblue;*/
+    height: 100%;
+    overflow-y: scroll;
+}
+
+.Manage-content-s1{
+    /*background-color: #424343;*/
+}
+
+.Manage-content-s1-addSection{
+    /*background-color: rebeccapurple;*/
+    display: flex;
+    justify-content: space-between;
+    padding-top: 10px;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.Manage-content-s1-addSection-title{
+    /*background-color: brown;*/
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+}
+
+.Section-input{
+    height: 30px;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.addSection-input-title{
+    width: 400px;
+}
+
+.addSection-input-author{
+    width: 300px;
+}
+
+.addSection-input-genre{
+    width: 300px;
+}
+
+.addSection-input-date{
+    width: 600px;
+}
+
+.addSection-input-price{
+    width: 400px;
+}
+
+.Manage-content-s1-addSection-button{
+    display: flex;
+    flex-direction: row-reverse;
+    width: 100%;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.Section-button{
+    padding: 10px;
+    width: 200px;
+    border-radius: 10px;
+    border: none;
+    background-color: cadetblue;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+@media only screen and (max-width: 767px) {
+    /* Add your mobile-specific styles here */
+
+}
+
+/* Tablets (768px to 1024px) */
+@media only screen and (min-width: 767px) and (max-width: 1024px) {
+    /* Add your tablet-specific styles here */
+
+}
+
+/* Desktops (1025px and up) */
+@media only screen and (min-width: 1025px) {
+    /* Add your desktop-specific styles here */
+
+}

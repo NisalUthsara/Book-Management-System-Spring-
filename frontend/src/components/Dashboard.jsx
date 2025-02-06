@@ -18,8 +18,8 @@ function Dashboard() {
                 </div>
                 <div className="main-sidebar-btn-div">
                     <button><Link to="/">Home</Link></button>
-                    <button><Link to="/manage">Manage</Link></button>
-                    <button>Profile</button>
+                    <button><Link to="/manage">Manage Books</Link></button>
+                    <button>View Books</button>
                 </div>
                 <div>
                     <button>Logout</button>

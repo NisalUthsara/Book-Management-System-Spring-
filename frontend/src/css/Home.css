@@ -38,7 +38,7 @@
     justify-content: center;
     align-items: center;
     width: 80%;
-    background-color: rebeccapurple;
+    /*background-color: rebeccapurple;*/
 }
 
 .Home-content-s1-box2{
@@ -94,6 +94,27 @@
 /*sizes of the icons*/
 
 .BookIcon, .SellIcon, .CalendarIcon {
-    font-size: xxx-large;
+    font-size: 20px;
 }
 
+/* Mobile devices (up to 767px) */
+@media only screen and (max-width: 767px) {
+    /* Add your mobile-specific styles here */
+    .Home-content-s1-box1-text-div, .Home-content-s1-box2-text-div, .Home-content-s1-box3-text-div{
+        font-size: xx-small;
+    }
+}
+
+/* Tablets (768px to 1024px) */
+@media only screen and (min-width: 767px) and (max-width: 1024px) {
+    /* Add your tablet-specific styles here */
+    .Home-content-s1-box1-text-div, .Home-content-s1-box2-text-div, .Home-content-s1-box3-text-div{
+        font-size: small;
+    }
+}
+
+/* Desktops (1025px and up) */
+@media only screen and (min-width: 1025px) {
+    /* Add your desktop-specific styles here */
+
+}
