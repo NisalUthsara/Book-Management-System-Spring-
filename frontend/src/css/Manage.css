@@ -69,6 +69,33 @@
     font-weight: bold;
 }
 
+.Manage-content-s2{
+    margin-top: 20px;
+    background-color: #424343;
+}
+
+.showSection-table{
+    width: 100%;
+    margin-top: 10px;
+    border-collapse: collapse;
+}
+
+.showSection-table, th, td {
+    border: 1px solid;
+    text-align: start;
+}
+
+th{
+    color: #0d0d0d;
+    font-size: larger;
+    border-color: white;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
 /* Scroll bar */
 ::-webkit-scrollbar {
     width: 15px;

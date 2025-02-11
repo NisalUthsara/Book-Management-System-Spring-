@@ -73,7 +73,32 @@ const handleSubmit = ()=> {
                     </div>
                 </div>
             </div>
-            <div className="Manage-content-s2"></div>
+            <div className="Manage-content-s2">
+                <h2>Book List</h2>
+                <div className="Manage-content-s1-showSection">
+                    <table className="showSection-table">
+                        <tr>
+                            <th>Title</th>
+                            <th>Author</th>
+                            <th>Genre</th>
+                            <th>Publish Date</th>
+                            <th>Price</th>
+                            <th>Actions</th>
+                        </tr>
+                        <tr>
+                            <td>Test</td>
+                            <td>Test</td>
+                            <td>Test</td>
+                            <td>Test</td>
+                            <td>Test</td>
+                            <td>
+                                <button>Edit</button>
+                                <button>Delete</button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
         </div>
 
 
