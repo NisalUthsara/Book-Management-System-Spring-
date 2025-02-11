@@ -1,5 +1,5 @@
 import '../css/Manage.css'
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import axiosConfig from "../api/axiosConfig";
 import api from "../api/axiosConfig";
 
@@ -11,6 +11,8 @@ function Manage() {
         price:"",
         publishedDate:""
     })
+
+    const [booksData, setBooksData] = useState([]);
 
     //handle input change
     const handleChange = (e) => {
@@ -41,6 +43,16 @@ const handleSubmit = ()=> {
                 alert("Failed to add book!");
             });
 }
+//Display book data on the table
+useEffect( () => {
+    api.get('/getAllBooks')
+        .then((response) => {
+            setBooksData(response.data);
+        })
+        .catch((error) => {
+           console.log("Error fetching books: ", error);
+        });
+});
 
     return(
         <div className="Manage-content">
@@ -76,7 +88,7 @@ const handleSubmit = ()=> {
             <div className="Manage-content-s2">
                 <h2>Book List</h2>
                 <div className="Manage-content-s1-showSection">
-                    <table className="showSection-table">
+                    <table className="showSection-table" id="showSection-table">
                         <tr>
                             <th>Title</th>
                             <th>Author</th>
@@ -85,17 +97,27 @@ const handleSubmit = ()=> {
                             <th>Price</th>
                             <th>Actions</th>
                         </tr>
-                        <tr>
-                            <td>Test</td>
-                            <td>Test</td>
-                            <td>Test</td>
-                            <td>Test</td>
-                            <td>Test</td>
-                            <td>
-                                <button>Edit</button>
-                                <button>Delete</button>
-                            </td>
-                        </tr>
+                        <tbody>
+                        {booksData && booksData.length > 0 ? (booksData.map((bookItem) => (
+                            <tr key={bookItem.id}>
+                                <td>{bookItem.title}</td>
+                                <td>{bookItem.author}</td>
+                                <td>{bookItem.genre}</td>
+                                <td>{bookItem.publishedDate}</td>
+                                <td>{bookItem.price}</td>
+                                <td>
+                                    <button>Edit</button>
+                                    <button>Delete</button>
+                                </td>
+                            </tr>
+                        ))
+                        ) : (
+                            <tr>
+                                <td colSpan="6">No books available</td>
+                            </tr>
+                        )}
+
+                        </tbody>
                     </table>
                 </div>
             </div>
