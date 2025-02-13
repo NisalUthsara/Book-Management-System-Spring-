@@ -54,6 +54,25 @@ useEffect( () => {
         });
 },[book]);
 
+//Delete Row
+const handleDelete = (id) => {
+    if (window.confirm("Are you sure you want to delete this book?")){
+        api.delete(`/deleteBook/${id}`)
+            .then((response) => {
+                console.log("Book deleted successfully:", response.data);
+                setBooksData((prevBooks) => prevBooks.filter(book => book.id !== id));
+            })
+            .catch((error) => {
+                console.error("Error deleting book:", error.response ? error.response.data : error.message);
+                alert("Failed to delete book!");
+            })
+    }
+};
+
+const handleUpdate = (id) => {
+  alert(`Ado ${id}`)
+};
+
     return(
         <div className="Manage-content">
             <div className="Manage-content-s1">
@@ -106,8 +125,8 @@ useEffect( () => {
                                 <td>{bookItem.publishedDate}</td>
                                 <td>{bookItem.price}</td>
                                 <td>
-                                    <button>Edit</button>
-                                    <button>Delete</button>
+                                    <button onClick={() => handleUpdate(bookItem.id)}>Edit</button>
+                                    <button onClick={() => handleDelete(bookItem.id)}>Delete</button>
                                 </td>
                             </tr>
                         ))
