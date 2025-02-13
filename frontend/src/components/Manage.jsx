@@ -52,7 +52,7 @@ useEffect( () => {
         .catch((error) => {
            console.log("Error fetching books: ", error);
         });
-});
+},[book]);
 
     return(
         <div className="Manage-content">
