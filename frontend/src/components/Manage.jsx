@@ -13,6 +13,8 @@ function Manage() {
     })
 
     const [booksData, setBooksData] = useState([]);
+    // State for storing the id of the book being edited
+    const [currentBookId, setCurrentBookId] = useState(null);
 
     //handle input change
     const handleChange = (e) => {
@@ -25,7 +27,7 @@ const handleSubmit = ()=> {
         ...book,
         publishedDate: book.publishedDate ? new Date(book.publishedDate).toISOString() : null
     };
-
+    if (currentBookId === null){
         api.post("/createBook",formattedBook)
             .then((response) => {
                 console.log("Book added successfully.! ", response.data);
@@ -42,6 +44,27 @@ const handleSubmit = ()=> {
                 console.log("Error adding book: ", error.response ? error.response.data : error.message);
                 alert("Failed to add book!");
             });
+    }else {
+        //update existing book
+        api.put(`/updateBook/${currentBookId}`,formattedBook)
+            .then((response) => {
+                console.log("Book updated successfully:", response.data);
+                alert("Book updated successfully!");
+                setBook({
+                    title: "",
+                    author: "",
+                    genre: "",
+                    publishedDate: "",
+                    price: "",
+                });
+                setCurrentBookId(null);
+            })
+            .catch((error) => {
+                console.error("Error updating book:", error.response ? error.response.data : error.message);
+                alert("Failed to update book!");
+            });
+    }
+
 }
 //Display book data on the table
 useEffect( () => {
@@ -70,13 +93,28 @@ const handleDelete = (id) => {
 };
 
 const handleUpdate = (id) => {
-  alert(`Ado ${id}`)
+    //search the relevant book
+  api.get(`/getBook/${id}`)
+      .then((response) => {
+        const fetchedBook = response.data;
+        setBook({
+            title: fetchedBook.title,
+            author: fetchedBook.author,
+            genre: fetchedBook.genre,
+            publishedDate: fetchedBook.publishedDate ? fetchedBook.publishedDate.split("T")[0]:"", //Format data for input
+            price: fetchedBook.price
+        });
+        setCurrentBookId(id);
+      })
+      .catch((error) => {
+          console.error("Error fetching book for update:", error.response ? error.response.data : error.message);
+      });
 };
 
     return(
         <div className="Manage-content">
             <div className="Manage-content-s1">
-                <h2>Add a book</h2>
+                <h2>{currentBookId ? "Edit a Book" : "Add a book"}</h2>
                 <div className="Manage-content-s1-addSection">
                     <div className="Manage-content-s1-addSection-title">
                         <label>Title*</label>
@@ -99,8 +137,10 @@ const handleUpdate = (id) => {
                         <input type="number" name="price" value={book.price} onChange={handleChange} className="Section-input addSection-input-price"/>
                     </div>
                     <div className="Manage-content-s1-addSection-button">
-                        <button className="Section-button" onClick={handleSubmit}>Add</button>
-                        <button className="Section-button">Update</button>
+                        <button className="Section-button" onClick={handleSubmit}>
+                            {currentBookId ? "Update" : "Add"}
+                        </button>
+                        {/*<button className="Section-button">Update</button>*/}
                     </div>
                 </div>
             </div>
