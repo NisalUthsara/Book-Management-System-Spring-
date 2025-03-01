@@ -15,6 +15,10 @@ function Manage() {
     const [booksData, setBooksData] = useState([]);
     // State for storing the id of the book being edited
     const [currentBookId, setCurrentBookId] = useState(null);
+    //original unsorted data
+    const [originalBooksData,setOriginalBooksData] = new useState([]);
+    //for sorting options
+    const [sortOrder,setSortOrder] = new useState("none");
 
     //handle input change
     const handleChange = (e) => {
@@ -71,6 +75,7 @@ useEffect( () => {
     api.get('/getAllBooks')
         .then((response) => {
             setBooksData(response.data);
+            setOriginalBooksData(response.data);
         })
         .catch((error) => {
            console.log("Error fetching books: ", error);
@@ -111,6 +116,26 @@ const handleUpdate = (id) => {
       });
 };
 
+const handleSortChange  = (e) => {
+    const selectedOrder = e.target.value;
+    setSortOrder(selectedOrder);
+
+    //If "none", reset to original unsorted data
+    if (selectedOrder === "none"){
+        setBooksData(originalBooksData);
+        return;
+    }
+
+    //otherwise, sort a copy of the original data
+    let sortedBooks = [...originalBooksData];
+    if (selectedOrder === "lowToHigh"){
+        sortedBooks.sort((a, b) => a.price - b.price);
+    }else if(selectedOrder === "highToLow"){
+        sortedBooks.sort((a,b) => b.price - a.price);
+    }
+    setBooksData(sortedBooks);
+};
+
     return(
         <div className="Manage-content">
             <div className="Manage-content-s1">
@@ -145,7 +170,14 @@ const handleUpdate = (id) => {
                 </div>
             </div>
             <div className="Manage-content-s2">
-                <h2>Book List</h2>
+                <div style={{display:'flex',justifyContent:"space-between",padding:"5px"}}>
+                    <h2>Book List</h2>
+                    <select id="Sort" onChange={handleSortChange} value={sortOrder}>
+                        <option value="none">Sort by Price</option>
+                        <option value="highToLow">High to low</option>
+                        <option value="lowToHigh">Low to high</option>
+                    </select>
+                </div>
                 <div className="Manage-content-s1-showSection">
                     <table className="showSection-table" id="showSection-table">
                         <tr>
