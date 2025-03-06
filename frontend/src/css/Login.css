@@ -1,0 +1,32 @@
+.Login-section{
+    height: 100vh;
+    color: white;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+}
+
+.Main-div-left{
+    background-color: #212121;
+    height: 100vh;
+    padding: 20px;
+    font-size: 25px;
+    display: grid;
+    grid-template-columns: 5% 95%;
+}
+
+.Main-div-right{
+    background-color: black;
+    height: 100vh;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+.right-main-div{
+    height: 400px;
+    background-color: #b30000;
+    padding: 20px;
+    border-radius: 10px;
+    display: grid;
+    justify-content: center;
+}
