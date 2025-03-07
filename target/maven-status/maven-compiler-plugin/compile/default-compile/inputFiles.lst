@@ -4,6 +4,8 @@ D:\Personal Works\Researches\Spring\Book-Management-System-Spring-\src\main\java
 D:\Personal Works\Researches\Spring\Book-Management-System-Spring-\src\main\java\com\example\Book\Management\System\dto\BookRequestDTO.java
 D:\Personal Works\Researches\Spring\Book-Management-System-Spring-\src\main\java\com\example\Book\Management\System\dto\BookResponseDTO.java
 D:\Personal Works\Researches\Spring\Book-Management-System-Spring-\src\main\java\com\example\Book\Management\System\entity\Book.java
+D:\Personal Works\Researches\Spring\Book-Management-System-Spring-\src\main\java\com\example\Book\Management\System\Exception\BookNotFoundException.java
+D:\Personal Works\Researches\Spring\Book-Management-System-Spring-\src\main\java\com\example\Book\Management\System\Exception\GlobalExceptionHandler.java
 D:\Personal Works\Researches\Spring\Book-Management-System-Spring-\src\main\java\com\example\Book\Management\System\repository\BookRepository.java
 D:\Personal Works\Researches\Spring\Book-Management-System-Spring-\src\main\java\com\example\Book\Management\System\service\BookService.java
 D:\Personal Works\Researches\Spring\Book-Management-System-Spring-\src\main\java\com\example\Book\Management\System\service\BookServiceImpl.java
