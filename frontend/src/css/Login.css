@@ -24,9 +24,53 @@
 
 .right-main-div{
     height: 400px;
-    background-color: #b30000;
     padding: 20px;
     border-radius: 10px;
     display: grid;
+    grid-template-rows: 1fr 2.5fr;
     justify-content: center;
+}
+
+.right-main-div-title{
+    text-align: center;
+    height: fit-content;
+    padding: 10px;
+}
+
+.right-main-div-title h2{
+    padding-bottom: 10px;
+}
+
+.right-main-div-content{
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-content: center;
+}
+
+.right-main-div-content-field{
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-content: center;
+    align-items: center;
+}
+
+.right-main-div-content-field input{
+    width: 100%;
+    height: 30px;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.right-main-div-content-checkBox{
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.right-main-div-content-button button{
+    width: 100%;
+    height: 30px;
+    border-radius: 10px;
+    border: none;
+    font-weight: bold;
 }

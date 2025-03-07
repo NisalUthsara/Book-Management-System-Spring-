@@ -9,24 +9,24 @@ function Login(){
           </div>
           <div className="Main-div-right">
                 <div className="right-main-div">
-                    <div>
+                    <div className="right-main-div-title">
                         <h2>Log in to your account</h2>
                         <p>Enter your email and password below to log in</p>
                     </div>
-                    <div>
-                        <div>
+                    <div className="right-main-div-content">
+                        <div className="right-main-div-content-field">
                             <p>Email Address</p>
                             <input/>
                         </div>
-                        <div>
+                        <div className="right-main-div-content-field">
                             <p>Password</p>
                             <input/>
                         </div>
-                        <div>
+                        <div className="right-main-div-content-checkBox">
                             <input type="checkbox"/>
                             <p>Remember me</p>
                         </div>
-                        <div>
+                        <div className="right-main-div-content-button">
                             <button>Login</button>
                         </div>
                     </div>
