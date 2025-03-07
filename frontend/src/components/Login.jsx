@@ -16,11 +16,11 @@ function Login(){
                     <div className="right-main-div-content">
                         <div className="right-main-div-content-field">
                             <p>Email Address</p>
-                            <input/>
+                            <input type="email"/>
                         </div>
                         <div className="right-main-div-content-field">
                             <p>Password</p>
-                            <input/>
+                            <input type="password"/>
                         </div>
                         <div className="right-main-div-content-checkBox">
                             <input type="checkbox"/>
