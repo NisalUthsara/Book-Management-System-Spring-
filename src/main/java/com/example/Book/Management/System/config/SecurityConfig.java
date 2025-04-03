@@ -34,7 +34,7 @@ public class SecurityConfig {
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 //Configure authorization rules
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/login").permitAll() // Public endpoints for authentication
+                        .requestMatchers("/api/auth/login").permitAll() // Public endpoints for authentication
                         .requestMatchers("/api/v2/books/**").hasRole("ADMIN") //Admin-only endpoints
                         .requestMatchers("/api/v2/books/**").hasRole("USER")
                         .anyRequest().authenticated() // All other endpoints require authentication
