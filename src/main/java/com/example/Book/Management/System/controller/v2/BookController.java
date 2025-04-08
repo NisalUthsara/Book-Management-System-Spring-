@@ -15,9 +15,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+@CrossOrigin (origins = "http://localhost:3000")
 @RestController("bookControllerV2")
 @RequestMapping("/api/v2/books")
-@CrossOrigin(origins = "http://localhost:3000")
 public class BookController {
     @Autowired
     private BookService bookService;

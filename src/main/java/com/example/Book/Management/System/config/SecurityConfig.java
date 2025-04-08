@@ -13,6 +13,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.cors.CorsConfigurationSource;
 
 @Configuration
 public class SecurityConfig {
@@ -26,8 +27,10 @@ public class SecurityConfig {
     }
 
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
+    public SecurityFilterChain securityFilterChain(HttpSecurity http, CorsConfigurationSource corsConfigurationSource) throws Exception{
         http
+                // Enable CORS using the defined CorsConfigurationSource
+                .cors(c -> c.configurationSource(corsConfigurationSource)) // This will use the global CorsConfigurationSource bean
                 //Disable CSRF since we are using JWT
                 .csrf(csrf -> csrf.disable())
                 //Set Session management to stateless

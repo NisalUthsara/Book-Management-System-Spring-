@@ -2,36 +2,28 @@ import '../css/Login.css';
 import StyleOutlinedIcon from '@mui/icons-material/StyleOutlined';
 import {useState} from "react";
 import axios from "axios";
+import {useDispatch, useSelector} from "react-redux";
+import {useNavigate} from "react-router-dom";
+import {loginUser} from "../features/authSlice";
 function Login(){
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-    const [error, setError] = useState("");
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const {loading, error, token} = useSelector((state) => state.auth);
 
     //handle form submission
-    const handleLogin = (e) => {
+    const handleLogin = async (e) => {
         e.preventDefault(); // Prevent form from refreshing the page
-
-        //Build payload
-        const credentials = {username, password};
-
-        //Send POST request to the auth endpoints.
-        //Note: Since our axiosConfig base URL doesn't apply here.
-        //We're using axios directly with full URL.
-        axios.post("http://localhost:8080/api/auth/login", credentials, {
-            headers: {"Content-Type":"application/json"}
-        })
-            .then((response) => {
-                //Assuming the token is returned in the response body.
-                const token = response.data;
-                console.log("Login successful! Token: ", token);
-                //Save the token in localStorage or Redux Store.
-                localStorage.setItem("token", token);
-            })
-            .catch((error) => {
-                console.error("Login error: ", error.response ? error.response.data : error.message)
-                setError("Invalid username or password");
-            })
+        try {
+            const resultAction = await dispatch(loginUser({ username, password })).unwrap();
+            console.log("Login successful, token:", resultAction);
+            //After successful login, navigate to dashboard
+            navigate('/');
+        }catch (err){
+            console.error("Login failed.", err);
+        }
     }
 
     return(
@@ -61,7 +53,7 @@ function Login(){
                         </div>
                         {error && <p style={{color:"red"}}>{error}</p>}
                         <div className="right-main-div-content-button">
-                            <button type="submit">Login</button>
+                            <button type="submit" disabled={loading}>Login</button>
                         </div>
                     </form>
                 </div>
