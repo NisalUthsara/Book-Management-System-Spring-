@@ -1,14 +1,25 @@
 import '../css/Dashboard.css'
 import MenuIcon from '@mui/icons-material/Menu';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import {Link, Outlet} from "react-router-dom";
+import {Link, Outlet, useNavigate} from "react-router-dom";
+import {useDispatch} from "react-redux";
+import {logout} from "../features/authSlice";
 function Dashboard() {
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
     const viewMenuIcon = () => {
         const sideBar = document.getElementsByClassName("main-sidebar")[0];
         if (sideBar){
             sideBar.classList.toggle('show');
         }
     };
+
+    const handleLogout = () => {
+        //Dispatch the logout action to clear authentication state
+        dispatch(logout());
+        navigate('/login');
+    }
 
     return (
         <div className="main-div">
@@ -22,7 +33,7 @@ function Dashboard() {
                     <button>View Books</button>
                 </div>
                 <div>
-                    <button>Logout</button>
+                    <button onClick={handleLogout}>Logout</button>
                 </div>
             </div>
             <div className="main-layout">
